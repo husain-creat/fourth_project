@@ -1,0 +1,25 @@
+.loginreg{
+    padding:20px;
+    width:80%;
+    display:flex;
+    justify-content: space-around;
+}
+td{
+    text-align:left;
+}
+
+.errors{
+    margin:0px auto;
+    width:600px;
+    color:red;
+    text-align:left;
+}
+.right{
+    text-align:right;
+}
+h2{
+    margin: 20px;
+}
+.form1_container{
+    margin-left:50px ;
+}

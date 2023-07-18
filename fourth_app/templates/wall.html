@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="form1_container">
+        <h2>post a messeage</h2>
+        <form action="{% url 'message'%}" method="post">
+            {% csrf_token %}
+            <textarea name="message-user"  cols="100" rows="10"></textarea>
+            <div>
+                <input type="submit" value="post a message"/>
+            </div>
+        </form>
+        {% for msg in messages %}
+        <p>{{ msg.user.first_name }} {{ msg.user.last_name }} {{ msg.updated_at }}</p>
+        <p>{{ msg.message_text }}</p>
+        {% endfor %}
+        
+            {% for comment in msg.comments.all %}
+                {{ comment.user.first_name }} {{ comment.user.last_name }} {{ comment.updated_at }}
+                <p>{{ comment.comment_text }}</p>
+            {% endfor %}
+
+
+        <div class="form1_container">
+        
+            <form action="{% url 'comment' %}
+            " method="post">
+                {% csrf_token %}
+                <textarea name="comment-user"  cols="100" rows="10"></textarea>
+                <div>
+                    <input type="submit" value="comment"/>
+                </div>
+            </form>
+        </div>
+
+</body>
+</html>
